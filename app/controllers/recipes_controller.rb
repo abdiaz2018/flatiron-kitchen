@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    before_action :set_recipe, only: [:edit, :edit]
+    before_action :set_recipe, only: [:edit, :update]
     before_action :get_ingredients, only: [:new, :edit]
     def index
         @recipes = Recipe.all 
@@ -18,7 +18,6 @@ class RecipesController < ApplicationController
     def edit 
     end
     def update
-        byebug
         @recipe.update(recipe_params)
         if @recipe.save
           redirect_to recipes_path
